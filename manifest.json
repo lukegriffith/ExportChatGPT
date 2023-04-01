@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "ChatGPT Markdown Converter",
+    "version": "1.0",
+    "description": "Converts chat sessions on chat.openai.com/chat into Markdown format.",
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+    "permissions": ["scripting", "activeTab"],
+    "host_permissions": [
+        "https://chat.openai.com/chat/*"
+    ],
+    "action": {
+    }
+}
+  
