@@ -977,7 +977,13 @@ var TurndownService = (function () {
   }());
 
 function extractChatData() {
-    const turndown = new TurndownService();
+    const turndown = new TurndownService({
+        codeBlockStyle: 'fenced',
+        fence: '```',
+        keepReplacement: function (innerHTML, node) {
+          return node.nodeName === 'PRE'
+        }
+      })
     let mainElement = document.querySelector('main').cloneNode(true);
     mainElement.querySelectorAll('svg').forEach((el) => { el.remove() }) 
     mainElement.querySelectorAll('button').forEach((el) => { el.remove() }) 
