@@ -11,7 +11,7 @@
     "host_permissions": [
         "https://chat.openai.com/chat/*"
     ],
-    "action": {
-    }
+   "action": {
+    "default_popup": "popup.html"
+  }
 }
-  

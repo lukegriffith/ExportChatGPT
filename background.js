@@ -1,8 +1,10 @@
 import { TurndownService } from './turndown.js';
 
 
+console.log("test")
 chrome.action.onClicked.addListener(function (tab) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        console.log('dispatching call to content script')
         if (tabs.length > 0) {
           var tabId = tabs[0].id;
 
@@ -22,4 +24,12 @@ chrome.action.onClicked.addListener(function (tab) {
       }
     });
   });
+
+// background.js
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === 'contentData') {
+    chrome.runtime.sendMessage(message);
+    console.log('background')
+  }
+});
 
